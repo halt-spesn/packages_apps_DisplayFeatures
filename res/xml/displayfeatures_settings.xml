@@ -20,7 +20,7 @@
 
     <SwitchPreferenceCompat
         android:key="dc_dimming"
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:title="@string/dc_dimming_title"
         android:summary="@string/dc_dimming_summary" />
 
