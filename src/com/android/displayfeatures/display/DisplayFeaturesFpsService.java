@@ -55,15 +55,8 @@ public class DisplayFeaturesFpsService extends Service {
     private String mFps = null;
 
     private DisplayFeaturesConfig mConfig;
-    private final String mFpsPath;
 
     private IDreamManager mDreamManager;
-
-    public DisplayFeaturesFpsService() {
-        super();
-        mConfig = DisplayFeaturesConfig.getInstance(this);
-        mFpsPath = mConfig.getFpsPath();
-    }
 
     private class FPSView extends View {
         private final Paint mOnlinePaint;
@@ -171,11 +164,9 @@ public class DisplayFeaturesFpsService extends Service {
     protected static class CurFPSThread extends Thread {
         private boolean mInterrupt = false;
         private final Handler mHandler;
-        private final String mFpsPath;
 
-        public CurFPSThread(Handler handler, String path){
+        public CurFPSThread(Handler handler){
             mHandler=handler;
-            this.mFpsPath = path;
         }
 
         public void interrupt() {
@@ -187,7 +178,7 @@ public class DisplayFeaturesFpsService extends Service {
             try {
                 while (!mInterrupt) {
                     sleep(1000);
-                    String fpsVal = DisplayFeaturesFpsService.readOneLine(this.mFpsPath);
+                    String fpsVal = DisplayFeaturesFpsService.readOneLine();
                     mHandler.sendMessage(mHandler.obtainMessage(1, fpsVal));
                 }
             } catch (InterruptedException ignored) { }
@@ -244,11 +235,11 @@ public class DisplayFeaturesFpsService extends Service {
         return null;
     }
 
-    private static String readOneLine(String path) {
+    private static String readOneLine() {
         BufferedReader br;
         String line;
         try {
-            br = new BufferedReader(new FileReader(path), 512);
+            br = new BufferedReader(new FileReader(mConfig.getFpsPath()), 512);
             try {
                 line = br.readLine();
             } finally {
@@ -290,7 +281,7 @@ public class DisplayFeaturesFpsService extends Service {
 
     private void startThread() {
         Log.d(TAG, "started CurFPSThread");
-        mCurFPSThread = new CurFPSThread(mView.getHandler(), mFpsPath);
+        mCurFPSThread = new CurFPSThread(mView.getHandler());
         mCurFPSThread.start();
         broadcastServiceState(true);
     }
