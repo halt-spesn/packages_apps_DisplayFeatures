@@ -38,8 +38,6 @@ public class DisplayFeaturesFragment extends PreferenceFragmentCompat implements
 
     private SwitchPreferenceCompat mDcDimmingPreference;
     private SwitchPreferenceCompat mHBMPreference;
-    private SwitchPreference mDcDimmingPreference;
-    private SwitchPreference mHBMPreference;
     private DisplayFeaturesConfig mConfig;
     private boolean mInternalHbmStart = false;
     private boolean mInternalDcDimStart = false;

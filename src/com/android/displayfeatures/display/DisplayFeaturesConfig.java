@@ -52,8 +52,6 @@ public class DisplayFeaturesConfig {
 
 	config_DisplayFeaturesDcDimPath = res.getString(com.android.settingslib.collapsingtoolbar.R.string.config_DisplayFeaturesDcDimPath);
 	config_DisplayFeaturesHbmPath = res.getString(com.android.settingslib.collapsingtoolbar.R.string.config_DisplayFeaturesHbmPath);
-	config_DisplayFeaturesDcDimPath = res.getString(R.string.config_DisplayFeaturesDcDimPath);
-	config_DisplayFeaturesHbmPath = res.getString(R.string.config_DisplayFeaturesHbmPath);
 
     }
 
