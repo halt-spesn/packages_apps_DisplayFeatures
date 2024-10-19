@@ -15,8 +15,8 @@
 <resources>
 
     <!-- Path to DC Dimming sysfs node -->
-    <string name="config_DisplayFeaturesDcDimPath" translatable="false">/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable</string>
+    <string name="config_DisplayFeaturesDcDimPath" translatable="false">/sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable</string>
 
     <!-- Path to HBM sysfs node -->
-    <string name="config_DisplayFeaturesHbmPath" translatable="false">/devices/platform/soc/soc:qcom,dsi-display-primary/hbm</string>
+    <string name="config_DisplayFeaturesHbmPath" translatable="false">/sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm</string>
 </resources>
